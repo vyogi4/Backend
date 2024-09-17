@@ -26,8 +26,4 @@ class ApiError extends Error {
 
 export {ApiError}
 
-/*
-else{
-    Error.captureStackTrace(this,this.constructor)
-}
-*/
+

@@ -1,5 +1,6 @@
 import {v2 as cloudinary} from "cloudinary"
 import fs from "fs"
+import { auto } from "openai/_shims/registry.mjs";
 
 
 cloudinary.config({ 
@@ -19,6 +20,7 @@ const uploadOnCloudinary  =async (localFilePath) => {
         })
         // file has been uploaded successfully
         console.log("file is uploaded on cloudinary",response.url);
+        fs.unlinkSync(localFilePath)
         return response
 
     }catch(error){
@@ -38,3 +40,8 @@ const uploadOnCloudinary  =async (localFilePath) => {
 // });
 
 // console.log(uploadResult);
+
+
+export {uploadOnCloudinary}
+
+
