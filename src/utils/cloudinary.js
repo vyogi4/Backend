@@ -1,6 +1,5 @@
 import {v2 as cloudinary} from "cloudinary"
 import fs from "fs"
-import { auto } from "openai/_shims/registry.mjs";
 
 
 cloudinary.config({ 
@@ -19,7 +18,7 @@ const uploadOnCloudinary  =async (localFilePath) => {
             resource_type:"auto"
         })
         // file has been uploaded successfully
-        console.log("file is uploaded on cloudinary",response.url);
+        // console.log("file is uploaded on cloudinary",response.url);
         fs.unlinkSync(localFilePath)
         return response
 
@@ -29,19 +28,9 @@ const uploadOnCloudinary  =async (localFilePath) => {
     }
 }
 
-// const uploadResult = await cloudinary.uploader
-// .upload(
-//     'https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg', {
-//         public_id: 'shoes',
-//     }
-// )
-// .catch((error) => {
-//     console.log(error);
-// });
-
-// console.log(uploadResult);
-
 
 export {uploadOnCloudinary}
+
+
 
 
